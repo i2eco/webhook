@@ -1,0 +1,37 @@
+[webhook]
+    [webhook.githook]
+        urlPath = "/githook"
+        token = "sdfkljghjsfdkgl"
+        execPath = "./tool/test.sh"
+        isBash = true
+     [webhook.ls]
+        urlPath = "/ls"
+        token = "sdfkljghjsfdkgl"
+        execPath = "ls"
+        execParams = ["-l"]
+        isBash = false
+[muses]
+    [muses.app]
+        name = "webhook"
+        env = "dev"
+        version = "1.0"
+        file = "local"
+    [muses.logger.system]
+          debug = true
+          level = "debug"
+          path = "./system.log"
+    [muses.server.stat]
+        addr = ":19004"
+        writeTimeout = "1s"
+        readTimeout = "1s"
+    [muses.server.gin]
+        graceful = true
+        mode = "debug"
+        addr = ":9004"
+        writeTimeout = "10s"
+        readTimeout = "10s"
+        maxHeaderBytes = 100000000000000
+        enabledRecovery = true
+        enabledLogger = true
+        enabledMetric = true
+
