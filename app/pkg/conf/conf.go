@@ -1,9 +1,7 @@
 package conf
 
 import (
-	"github.com/goecology/webhook/app/pkg/mus"
 	"github.com/spf13/viper"
-	"go.uber.org/zap"
 )
 
 var Conf = conf{}
@@ -20,10 +18,7 @@ type UrlInfo struct {
 	IsBash     bool
 }
 
-func Init() {
+func Init() error {
 	err := viper.Unmarshal(&Conf)
-	if err != nil {
-		mus.Logger.Error("unmarshal error", zap.Error(err))
-		return
-	}
+	return err
 }

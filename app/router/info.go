@@ -1,7 +1,6 @@
 package router
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/webhook/app/pkg/conf"
 	"io"
@@ -26,7 +25,6 @@ import (
 
 func Info(c *gin.Context) {
 	for _, value := range conf.Conf.WebHook {
-		fmt.Println("value.UrlPath ==>", value.UrlPath)
 		if value.UrlPath == c.Request.URL.Path {
 			token := c.Request.URL.Query().Get("token")
 			if value.Token != "" && value.Token != token {
